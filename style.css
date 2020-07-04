@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2020 Bowser65
+ * Licensed under the Open Software License version 3.0
+ */
+
+.mutuals-quick-ban-btn {
+  box-sizing: border-box;
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.mutuals-quick-ban-btn:hover {
+  background-color: var(--background-secondary);
+}
+
+.mutuals-quick-ban-btn + .mutuals-quick-ban-btn {
+  margin-left: 8px;
+  padding: 7px;
+}

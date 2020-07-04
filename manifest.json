@@ -1,0 +1,7 @@
+{
+  "name": "Mutuals QuickBan",
+  "version": "1.0.0",
+  "description": "A plugin that lets you kick and ban people from servers in which you have permission to do so from the \"Mutual Servers\" tab on their profile.",
+  "author": "Bowser65",
+  "license": "OSL-3.0"
+}
