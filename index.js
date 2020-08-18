@@ -75,6 +75,7 @@ module.exports = class MutualsQuickBan extends Plugin {
       : getModuleByDisplayName('KickConfirm', false);
     openModal(() => React.createElement(Component, {
       onClose: closeModal,
+      transitionState: 1,
       guildId,
       user
     }));
