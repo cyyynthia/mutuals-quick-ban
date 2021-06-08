@@ -35,18 +35,21 @@ const { findInReactTree, getOwnerInstance } = require('powercord/util');
 module.exports = class MutualsQuickBan extends Plugin {
   async startPlugin () {
     this.loadStylesheet('style.css');
-    const MutualGuilds = await this._fetchMutualsModule();
-    const _this = this;
-    inject('mutuals-quick-ban', MutualGuilds.prototype, 'render', function (_, res) {
+    const MutualGuilds = await getModule((m) => m.default?.displayName == 'MutualGuilds')
+    inject('mutuals-quick-ban', MutualGuilds, 'default', (_, res) => {
       const instance = getOwnerInstance(document.querySelector('[role="dialog"]'));
       const obj = findInReactTree(instance, n => n.user);
       if (!obj) {
-        setTimeout(() => this.forceUpdate(), 10);
+        console.log('!!');
+        // setTimeout(() => this.forceUpdate(), 10);
         return res;
       }
-      res.props.children.forEach(c => c.type = _this._render.bind(_this, c.type, obj.user));
+
+      res.props.children.forEach(c => c.type = this._render.bind(this, c.type, obj.user));
       return res;
     });
+
+    MutualGuilds.default.displayName = 'MutualGuilds';
   }
 
   pluginWillUnload () {
